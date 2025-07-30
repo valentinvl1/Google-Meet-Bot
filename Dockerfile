@@ -5,7 +5,12 @@ WORKDIR /app
 COPY . .
 
 # Pour l'enregistrement audio
-RUN apt-get update && apt-get install -y ffmpeg curl xvfb
+RUN apt-get update && apt-get install -y \
+    libportaudio2 \
+    libportaudiocpp0 \
+    portaudio19-dev \
+    libasound-dev \
+    libsndfile1-dev
 
 RUN pip install --no-cache-dir -r requirements.txt
 
